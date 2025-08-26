@@ -24,3 +24,7 @@ class ReadConfig:
     @staticmethod
     def get_login_url_page():
         return ReadConfig.url_login.get("setting", "login_url_page")
+
+    @staticmethod
+    def get_after_login_url():
+        return ReadConfig.url_login.get("setting", "after_login_url")

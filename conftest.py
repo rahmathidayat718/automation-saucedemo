@@ -2,6 +2,21 @@ from selenium import webdriver
 import pytest
 from utilities.read_properties import ReadConfig
 
+#report
+@pytest.hookimpl(hookwrapper=True)
+def pytest_runtest_makereport(item, call):
+    outcome = yield
+    rep = outcome.get_result()
+
+    if rep.when == "call":
+        if rep.failed:
+            # biarkan error muncul normal
+            rep.longrepr = str(rep.longrepr)
+        else:
+            # hilangkan detail log jika test pass
+            rep.longrepr = None
+
+
 @pytest.fixture()
 def driver():
     driver =webdriver.Chrome()
