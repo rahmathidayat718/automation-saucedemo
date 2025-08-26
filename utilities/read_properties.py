@@ -1,0 +1,26 @@
+import configparser
+
+class ReadConfig:
+
+    # READ URL  LOGIN FROM |    .\\data\\config.ini
+    url_login = configparser.ConfigParser()
+    url_login.read(".\\data\\config.ini")
+
+    # READ DATA LOGIN FROM |    .\\data\\config.ini
+    login_sauce_demo =configparser.ConfigParser()
+    login_sauce_demo.read(".\\data\\config.ini")
+
+    #GET_DATA
+    @staticmethod
+    def get_data_login():
+        login_data = []
+        for section in ReadConfig.login_sauce_demo.sections():
+            if "login" in section.lower():  # section yang ada kata 'login'
+                username = ReadConfig.login_sauce_demo.get(section, 'username', fallback=None)
+                password = ReadConfig.login_sauce_demo.get(section, 'password', fallback=None)
+                login_data.append((username, password, section))
+        return login_data
+
+    @staticmethod
+    def get_login_url_page():
+        return ReadConfig.url_login.get("setting", "login_url_page")
