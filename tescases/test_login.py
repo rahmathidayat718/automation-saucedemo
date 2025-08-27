@@ -1,6 +1,6 @@
 from pages.login_page import LoginPage
 from utilities.read_properties import ReadConfig
-
+from logger import logger
 
 class TestLogin:
 
@@ -16,3 +16,5 @@ class TestLogin:
         current_url = driver.current_url
 
         assert current_url == expected_url, f"URL tidak sesuai! Harusnya {expected_url}, tapi dapat {current_url}"
+        logger.debug("Url validation")
+        logger.info("=====> Login sequence finished")

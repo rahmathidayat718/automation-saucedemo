@@ -1,7 +1,8 @@
 from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as e
-from selenium.common import TimeoutException
+from selenium.webdriver.support import expected_conditions as ec
+from selenium.common.exceptions import TimeoutException, ElementClickInterceptedException
 
 class BaseDriver:
 
@@ -10,7 +11,7 @@ class BaseDriver:
     def __init__(self, driver):
             self.driver = driver
 
-    def find_element(self, locator, timeout=30):
+    def find_element(self, locator, timeout=10):
         try:
             element = WebDriverWait(self.driver, timeout).until(
                 e.element_to_be_clickable(locator)
@@ -33,5 +34,16 @@ class BaseDriver:
         except Exception as ee:
             print(f"Terjadi kesalahan saat mencoba memasukkan teks ke elemen: {ee}")
             return None
+
     def click(self, locator):
-        self.find_element(locator).click()
+        try:
+            element = WebDriverWait(self.driver, 30).until(
+                ec.element_to_be_clickable(locator)
+            )
+            element.click()
+        except (TimeoutException, ElementClickInterceptedException):
+            # fallback: klik pakai JavaScript kalau normal click gagal
+            element = WebDriverWait(self.driver, 30).until(
+                ec.presence_of_element_located(locator)
+            )
+            self.driver.execute_script("arguments[0].click();", element)

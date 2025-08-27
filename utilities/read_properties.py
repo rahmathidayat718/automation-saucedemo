@@ -3,8 +3,8 @@ import configparser
 class ReadConfig:
 
     # READ URL  LOGIN FROM |    .\\data\\config.ini
-    url_login = configparser.ConfigParser()
-    url_login.read(".\\data\\config.ini")
+    url_basic = configparser.ConfigParser()
+    url_basic.read(".\\data\\config.ini")
 
     # READ DATA LOGIN FROM |    .\\data\\config.ini
     login_sauce_demo =configparser.ConfigParser()
@@ -23,8 +23,16 @@ class ReadConfig:
 
     @staticmethod
     def get_login_url_page():
-        return ReadConfig.url_login.get("setting", "login_url_page")
+        return ReadConfig.url_basic.get("setting", "login_url_page")
 
     @staticmethod
     def get_after_login_url():
-        return ReadConfig.url_login.get("setting", "after_login_url")
+        return ReadConfig.url_basic.get("setting", "after_login_url")
+
+    @staticmethod
+    def get_logout_url_page():
+        return ReadConfig.url_basic.get("LOGOUT", "logout_url_page")
+
+    @staticmethod
+    def get_after_logout_url():
+        return ReadConfig.url_basic.get("LOGOUT", "after_logout_url")
