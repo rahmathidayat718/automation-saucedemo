@@ -47,3 +47,13 @@ class BaseDriver:
                 ec.presence_of_element_located(locator)
             )
             self.driver.execute_script("arguments[0].click();", element)
+
+    #for login validation
+    def is_element_visible(self, locator, timeout=3):
+        try:
+            WebDriverWait(self.driver, timeout).until(ec.visibility_of_element_located(locator))
+            return True
+        except (ElementClickInterceptedException, TimeoutException):
+            return False
+    def get_text(self, locator):
+        return self.driver.find_element(*locator).text
