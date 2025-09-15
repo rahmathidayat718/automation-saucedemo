@@ -16,3 +16,10 @@ class Locators:
     # Logout Locators
     open_menu_xpath = (By.XPATH, "//button[normalize-space()='Open Menu']")
     btn_logout_xpath = (By.XPATH, "//a[@id='logout_sidebar_link']")
+
+    #Fiter Products
+    btn_filter = (By.XPATH, "//select[@class='product_sort_container']")
+    click_Name_A_Z = (By.XPATH, "//select[@class='product_sort_container']/option[@value='az']")
+    click_Name_Z_A = (By.XPATH, "//select[@class='product_sort_container']/option[@value='za']")
+    click_Price_Low_High = (By.XPATH, "//select[@class='product_sort_container']/option[@value='lohi']")
+    click_Price_High_Low = (By.XPATH, "//select[@class='product_sort_container']/option[@value='hilo']")
