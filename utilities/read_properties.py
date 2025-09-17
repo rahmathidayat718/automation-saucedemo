@@ -34,6 +34,10 @@ class ReadConfig:
         return ReadConfig.url_basic.get("LOGOUT", "logout_url_page")
 
     @staticmethod
+    def get_about_url_page():
+        return ReadConfig.url_basic.get("ABOUT", "about_url_page")
+
+    @staticmethod
     def get_after_logout_url():
         return ReadConfig.url_basic.get("LOGOUT", "after_logout_url")
 

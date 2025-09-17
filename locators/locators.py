@@ -23,3 +23,6 @@ class Locators:
     click_Name_Z_A = (By.XPATH, "//select[@class='product_sort_container']/option[@value='za']")
     click_Price_Low_High = (By.XPATH, "//select[@class='product_sort_container']/option[@value='lohi']")
     click_Price_High_Low = (By.XPATH, "//select[@class='product_sort_container']/option[@value='hilo']")
+
+    #About
+    btn_about_xpath = (By.XPATH, "//a[@id='about_sidebar_link']")

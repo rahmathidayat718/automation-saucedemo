@@ -32,6 +32,7 @@ def config():
     return{
         "login_url_page": ReadConfig.get_login_url_page(),
         "logout_url_page": ReadConfig.get_logout_url_page(),
+        "about_url_page": ReadConfig.get_about_url_page(),
     }
 
 # DATA LOGIN
