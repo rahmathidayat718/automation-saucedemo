@@ -42,3 +42,11 @@ def config():
 )
 def data_login(request):
     return request.param
+
+# DATA FOR LOGIN
+@pytest.fixture(
+    params=ReadConfig.get_data_for_login(),
+    ids=lambda param: param[2]
+)
+def data_for_login(request):
+    return request.param

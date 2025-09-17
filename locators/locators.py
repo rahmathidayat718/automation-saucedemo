@@ -26,3 +26,6 @@ class Locators:
 
     #About
     btn_about_xpath = (By.XPATH, "//a[@id='about_sidebar_link']")
+
+    #Chart
+    icon_chart = (By.XPATH, "(//*[name()='path'][@fill='currentColor'])[1]")

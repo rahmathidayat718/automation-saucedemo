@@ -22,6 +22,12 @@ class ReadConfig:
         return login_data
 
     @staticmethod
+    def get_data_for_login():
+        username = ReadConfig.login_data.get("DataLogin", "username")
+        password = ReadConfig.login_data.get("DataLogin", "password")
+        return username, password
+
+    @staticmethod
     def get_login_url_page():
         return ReadConfig.url_basic.get("setting", "login_url_page")
 

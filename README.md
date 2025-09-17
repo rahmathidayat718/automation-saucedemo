@@ -11,3 +11,7 @@ RUN TEST
    -  pytest tescases/test_logout.py --html=reports/logout_basic_report.html --self-contained-html -s
 4. Filter
    - pytest tescases/test_filter_products.py --html=reports/filter.html --self-contained-html -s
+5. About
+   - pytest tescases/test_about.py --html=reports/about.html --self-contained-html -s
+6. Shopping Chart
+   - 

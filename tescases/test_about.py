@@ -16,5 +16,5 @@ class TestAbout:
         current_url = driver.current_url
 
         assert current_url == expected_url, f"URL tidak sesuai! Harusnya {expected_url}, tapi dapat {current_url}"
-        logger.debug("validation logout url")
+        logger.debug("validation about url")
         logger.info("=====> Logout Sauce Demo finished")
