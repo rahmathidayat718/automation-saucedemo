@@ -21,6 +21,7 @@ class ReadConfig:
                 login_data.append((username, password, section))
         return login_data
 
+    # Read Data Login (Untuk Login Setiap Test)
     @staticmethod
     def get_data_for_login():
         username = ReadConfig.login_data.get("DataLogin", "username")

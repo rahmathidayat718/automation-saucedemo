@@ -29,3 +29,8 @@ class Locators:
 
     #Chart
     icon_chart = (By.XPATH, "(//*[name()='path'][@fill='currentColor'])[1]")
+    product1 = (By.XPATH, "//div[@class='inventory_list']//div[1]//div[3]//button[1]")
+    product2 = (By.XPATH, "//body//div[@id='page_wrapper']//div[@id='inventory_container']//div[@id='inventory_container']//div[2]//div[3]//button[1]")
+    product3 = (By.XPATH, "//div[3]//div[3]//button[1]")
+    product4 = (By.XPATH, "//div[5]//div[3]//button[1]")
+
